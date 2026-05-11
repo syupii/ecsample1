@@ -16,14 +16,14 @@ public class UserForm {
 	@NotBlank(message = "メール確認用アドレスを入力してください")
 	private String emailConfirm;
 
+	@NotBlank(message = "パスワードは必須です")
+	@Size(min = 6, message = "パスワードは6文字以上で入力してください")
+	private String password;
+
 	@AssertTrue(message = "メールアドレスが一致しません")
 	public boolean isEmailConfirmed() {
 		return email != null && email.equals(emailConfirm);
 	}
-
-	@NotBlank(message = "パスワードは必須です")
-	@Size(min = 6, message = "パスワードは6文字以上で入力してください")
-	private String password;
 
 	public String getEmailConfirm() {
 		return emailConfirm;
